@@ -1,29 +1,12 @@
 'use strict';
 
 /*
-    8kyu. Basic Mathematical Operations
+    8kyu. Returning Strings
 
-Your task is to create a function that does four basic mathematical operations.
-The function should take three arguments - operation(string/char), value1(number), value2(number).
-The function should return result of numbers after applying the chosen operation.
-Examples(Operator, value1, value2) --> output
-('+', 4, 7) --> 11
-('-', 15, 18) --> -3
-('*', 5, 5) --> 25
-('/', 49, 7) --> 7
+Make a function that will return a greeting statement that uses an input; 
+your program should return, "Hello, <name> how are you doing today?".
 */
 
-function basicOp(operation, value1, value2) {
-    switch (operation) {
-        case '+':
-            return value1 + value2;
-        case '-':
-            return value1 - value2;
-        case '*':
-            return value1 * value2;
-        case '/':
-            return value1 / value2;
-        default:
-            return 0;
-    }
+function greet(name) {
+    return `Hello, ${name} how are you doing today?`;
 }
