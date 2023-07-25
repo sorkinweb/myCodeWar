@@ -1,16 +1,16 @@
 'use strict';
 
 /*
-    8kyu. Remove First and Last Character
+    8kyu. String repeat
+    
 
-
-    It's pretty straightforward. Your goal is to 
-    create a function that removes the first and last characters of a string. 
-    You're given one parameter, the original string. 
-    You don't have to worry with strings with less than two characters.
-
+Write a function that accepts an integer n and a string s as parameters, 
+and returns a string of s repeated exactly n times.
+Examples (input -> output)
+6, "I"     -> "IIIIII"
+5, "Hello" -> "HelloHelloHelloHelloHello"
 */
 
-function removeChar(str) {
-    return str.slice(1, -1);
+function repeatStr(n, s) {
+    return s.repeat(n);
 }
