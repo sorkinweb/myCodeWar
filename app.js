@@ -1,17 +1,29 @@
 'use strict';
 
 /*
-    8kyu. Is n divisible by x and y?
+    8kyu. Basic Mathematical Operations
 
-Create a function that checks if a number n is divisible by two numbers x AND y. 
-All inputs are positive, non-zero numbers.
-Examples:
-1) n =   3, x = 1, y = 3 =>  true because   3 is divisible by 1 and 3
-2) n =  12, x = 2, y = 6 =>  true because  12 is divisible by 2 and 6
-3) n = 100, x = 5, y = 3 => false because 100 is not divisible by 3
-4) n =  12, x = 7, y = 5 => false because  12 is neither divisible by 7 nor 5
+Your task is to create a function that does four basic mathematical operations.
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+Examples(Operator, value1, value2) --> output
+('+', 4, 7) --> 11
+('-', 15, 18) --> -3
+('*', 5, 5) --> 25
+('/', 49, 7) --> 7
 */
 
-function isDivisible(n, x, y) {
-    return n % x === 0 && n % y === 0;
+function basicOp(operation, value1, value2) {
+    switch (operation) {
+        case '+':
+            return value1 + value2;
+        case '-':
+            return value1 - value2;
+        case '*':
+            return value1 * value2;
+        case '/':
+            return value1 / value2;
+        default:
+            return 0;
+    }
 }
