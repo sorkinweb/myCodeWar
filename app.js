@@ -1,12 +1,16 @@
 'use strict';
 
 /*
-    8kyu. Returning Strings
+    8kyu. A Needle in the Haystack
 
-Make a function that will return a greeting statement that uses an input; 
-your program should return, "Hello, <name> how are you doing today?".
+Can you find the needle in the haystack?
+Write a function findNeedle() that takes an array full of junk but containing one "needle"
+After your function finds the needle it should return a message (as a string) that says:
+"found the needle at position " plus the index it found the needle, so:
+Example(Input --> Output)
+["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
 */
 
-function greet(name) {
-    return `Hello, ${name} how are you doing today?`;
+function findNeedle(haystack) {
+    return `found the needle at position ${haystack.indexOf('needle')}`;
 }
