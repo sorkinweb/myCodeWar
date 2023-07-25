@@ -1,21 +1,19 @@
 'use strict';
 
 /*
-    8kyu. Abbreviate a Two Word Name
+    8kyu. Convert a String to a Number!
 
-Write a function to convert a name into initials. 
-This kata strictly takes two words with one space in between them.
-The output should be two capital letters with a dot separating them.
-It should look like this:
-
-Sam Harris => S.H
-patrick feeney => P.F
+We need a function that can transform a string into a number. What ways of achieving this do you know?
+Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
+Examples
+"1234" --> 1234
+"605"  --> 605
+"1405" --> 1405
+"-7" --> -7
 */
 
-function abbrevName(name) {
-    name = name.toUpperCase();
-    const [firstName, secondName] = name.split(' ');
-    return `${firstName[0]}.${secondName[0]}`;
-}
+const stringToNumber = function (str) {
+    return +str;
+};
 
-// or return name.split(' ').map(i => i[0].toUpperCase()).join('.')
+// or return parseInt(str); or return Number(str);
