@@ -1,19 +1,17 @@
 'use strict';
 
 /*
-    8kyu. Convert a String to a Number!
+    8kyu. Convert number to reversed array of digits
 
-We need a function that can transform a string into a number. What ways of achieving this do you know?
-Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
-Examples
-"1234" --> 1234
-"605"  --> 605
-"1405" --> 1405
-"-7" --> -7
+Given a random non-negative number,
+you have to return the digits of this number within an array in reverse order.
+Example(Input => Output):
+35231 => [1,3,2,5,3]
+0 => [0]
 */
 
-const stringToNumber = function (str) {
-    return +str;
-};
+function digitize(n) {
+    return n.toString().split('').map((el) => +el).reverse();
+}
 
-// or return parseInt(str); or return Number(str);
+// or return String(n).split('').map(Number).reverse()

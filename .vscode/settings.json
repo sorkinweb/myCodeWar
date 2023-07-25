@@ -2,5 +2,11 @@
     "javascript.preferences.quoteStyle": "single",
     "typescript.preferences.quoteStyle": "single",
     "prettier.jsxSingleQuote": false,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "eslint.codeActionsOnSave.rules": false,
+    "prettier.embeddedLanguageFormatting": "off",
+    "editor.codeActionsOnSave": {
+
+    },
+    "editor.formatOnSave": false
 }
