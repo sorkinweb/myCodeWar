@@ -1,16 +1,24 @@
 'use strict';
 
 /*
-    8kyu. A Needle in the Haystack
+    8kyu. Are You Playing Banjo?
 
-Can you find the needle in the haystack?
-Write a function findNeedle() that takes an array full of junk but containing one "needle"
-After your function finds the needle it should return a message (as a string) that says:
-"found the needle at position " plus the index it found the needle, so:
-Example(Input --> Output)
-["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
+Create a function which answers the question "Are you playing banjo?".
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+The function takes a name as its only argument, and returns one of the following strings:
+name + " plays banjo" 
+name + " does not play banjo"
 */
 
-function findNeedle(haystack) {
-    return `found the needle at position ${haystack.indexOf('needle')}`;
+function areYouPlayingBanjo(name) {
+    if(name.startsWith('R') || (name.startsWith('r'))) {
+        return name + ' plays banjo';
+    } else {
+        return name + ' does not play banjo';
+    }
 }
+
+console.log(areYouPlayingBanjo('Ricardo')); // Ricardo plays banjo
+console.log(areYouPlayingBanjo('Alexandr')); // Alexandr does not play banjo
+
+// or return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo";
