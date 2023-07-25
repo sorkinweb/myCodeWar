@@ -1,18 +1,24 @@
 'use strict';
 
 /*
-    8kyu. Calculate average
+    8kyu. Invert values
 
-Write a function which calculates the average of the numbers in a given list.
-Note: Empty arrays should return 0.
+Given a set of numbers, return the additive inverse of each. 
+Each positive becomes negatives, and the negatives become positives.
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == []
+You can assume that all values are integers. Do not mutate the input array/list.
 */
 
-const newArr = [0, 0, 0];
-const newArr1 = [1, 1, 1];
+const newArr = [1, 3, -2, 6, -12, -22, 211];
+
 
 function findAverage(array) {
-    return array.length === 0 ? 0 : array.reduce((acc, el) => acc + el, 0) / array.length; 
+    const newArray = array.map(el => -el);
+    return newArray;
 }
 
-console.log(findAverage(newArr)); // 0
-console.log(findAverage(newArr1)) // 1
+console.log(findAverage(newArr)); // [-1, -3, 2, -6, 12, 22, -211]
+
+// or return array.map(el => -el);
