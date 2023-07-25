@@ -1,18 +1,26 @@
 'use strict';
 
 /*
-    8kyu. Even or Odd
-    Create a function that takes an integer as an argument 
-    and returns "Even" for even numbers or "Odd" for odd numbers.
+    8kyu. Opposite number
+
+Very simple, given an integer or a floating-point number, find its opposite.
+Examples:
+1: -1
+14: -14
+-34: 34
 */
 
-function evenOrOdd(num) {
-    if (num % 2 !== 0) {
-        return 'Odd';
-    } else {
-        return 'Even';
+function opposite(number) {
+    if (number > 0) {
+        return -Math.abs(number);
+    } else if (number < 0) {
+        return Math.abs(number);
+    } else if (number === 0) {
+        return 0;
     }
 }
-console.log(evenOrOdd(1)); // odd
+console.log(opposite(-22)); // 22
+console.log(opposite(144)); // -144
+console.log(0); // 0
 
-// or return num % 2 ? 'Odd' : 'Even'
+// or return(-number); or return number * (-1);
