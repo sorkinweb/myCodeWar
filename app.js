@@ -1,26 +1,28 @@
 'use strict';
 
 /*
-    8kyu. Opposite number
+    8kyu. Convert a Number to a String!
 
-Very simple, given an integer or a floating-point number, find its opposite.
-Examples:
-1: -1
-14: -14
--34: 34
+We need a function that can transform a number (integer) into a string.
+What ways of achieving this do you know?
+
+Examples (input --> output):
+123  --> "123"
+999  --> "999"
+-100 --> "-100"
 */
 
-function opposite(number) {
-    if (number > 0) {
-        return -Math.abs(number);
-    } else if (number < 0) {
-        return Math.abs(number);
-    } else if (number === 0) {
-        return 0;
+function numberToString(num) {
+    if (Number.isInteger(num) === true) {
+        return String(num);
+    } else {
+        return;
     }
 }
-console.log(opposite(-22)); // 22
-console.log(opposite(144)); // -144
-console.log(0); // 0
 
-// or return(-number); or return number * (-1);
+console.log(numberToString(22)); // 22
+console.log(numberToString(1231)); // 1231
+console.log(numberToString('44')); // undefined
+console.log(numberToString('asfasfa')); // undefined
+
+// return num.toString();
