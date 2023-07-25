@@ -1,15 +1,12 @@
 'use strict';
 
 /*
-    8kyu. Reversed Strings
+    8kyu. Convert boolean values to strings 'Yes' or 'No'.
 
-Complete the solution so that it reverses the string passed into it.
-'world'  =>  'dlrow'
-'word'   =>  'drow'
+Complete the method that takes a boolean value 
+and return a "Yes" string for true, or a "No" string for false.
 */
 
-function solution(str) {
-    if (typeof str == 'string') {
-        return str.split('').reverse().join('');
-    }
+function boolToWord(value) {
+    return value ? 'Yes' : 'No';
 }
