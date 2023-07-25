@@ -1,21 +1,17 @@
 'use strict';
 
 /*
-    8kyu. Grasshopper - Summation
+    8kyu. Remove String Spaces
 
-Write a program that finds the summation of every number from 1 to num. 
-The number will always be a positive integer greater than 0.
-For example (Input -> Output):
-2 -> 3 (1 + 2)
-8 -> 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)
+Write a function that removes the spaces from the string, then return the resultant string.
+Examples:
+Input -> Output
+"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r     " -> "8aaaaaddddr"
 */
 
-var summation = function (num) {
-    let sum = 0;
-    for (let i = 1; i <= num; i++) {
-        sum += i;
-    }
-    return sum;
-};
-
-// or return num * (num + 1) / 2
+function noSpace(x) {
+    x = x.replaceAll(' ', '');
+    return x;
+}
