@@ -1,28 +1,20 @@
 'use strict';
 
 /*
-    8kyu. Convert a Number to a String!
+    8kyu. Sum of positive
 
-We need a function that can transform a number (integer) into a string.
-What ways of achieving this do you know?
-
-Examples (input --> output):
-123  --> "123"
-999  --> "999"
--100 --> "-100"
+You get an array of numbers, return the sum of all of the positives ones.
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+Note: if there is nothing to sum, the sum is default to 0.
 */
 
-function numberToString(num) {
-    if (Number.isInteger(num) === true) {
-        return String(num);
-    } else {
-        return;
+function positiveSum(arr) {
+    let sum = 0;
+    const resultArr = arr.filter((el) => el > 0);
+    for (const el of resultArr) {
+        sum += el;
     }
+    return sum;
 }
 
-console.log(numberToString(22)); // 22
-console.log(numberToString(1231)); // 1231
-console.log(numberToString('44')); // undefined
-console.log(numberToString('asfasfa')); // undefined
-
-// return num.toString();
+// or return arr.filter(element => element > 0).reduce((acc, el) => acc + el, 0);
