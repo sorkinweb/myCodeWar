@@ -1,24 +1,25 @@
 'use strict';
 
 /*
-    8kyu. Invert values
+    8kyu. Count of positives / sum of negatives
 
-Given a set of numbers, return the additive inverse of each. 
-Each positive becomes negatives, and the negatives become positives.
-invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
-invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
-invert([]) == []
-You can assume that all values are integers. Do not mutate the input array/list.
+Given an array of integers.
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 
+0 is neither positive nor negative.
+If the input is an empty array or is null, return an empty array.
+Example
+For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
 */
 
-const newArr = [1, 3, -2, 6, -12, -22, 211];
-
-
-function findAverage(array) {
-    const newArray = array.map(el => -el);
-    return newArray;
+function countPositivesSumNegatives(input) {
+    if (input && input.length) {
+        let positiveCount = 0;
+        let negativeSum = 0;
+        input.forEach(el => el > 0 ? positiveCount ++ : negativeSum += el);
+        return [positiveCount, negativeSum];
+    } else {
+        return [];
+    }
 }
 
-console.log(findAverage(newArr)); // [-1, -3, 2, -6, 12, 22, -211]
-
-// or return array.map(el => -el);
+// or return input && input.length ? [input.filter(p => p > 0).length, input.filter(n => n < 0).reduce((a, b) => a + b, 0)] : [];
