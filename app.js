@@ -1,17 +1,20 @@
 'use strict';
 
 /*
-    8kyu. Remove String Spaces
+    8kyu. Find the smallest integer in the array
 
-Write a function that removes the spaces from the string, then return the resultant string.
-Examples:
-Input -> Output
-"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
-"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
-"8aaaaa dddd r     " -> "8aaaaaddddr"
+Given an array of integers your solution should find the smallest integer.
+For example:
+Given [34, 15, 88, 2] your solution will return 2
+Given [34, -345, -1, 100] your solution will return -345
+You can assume, for the purpose of this kata, that the supplied array will not be empty.
 */
 
-function noSpace(x) {
-    x = x.replaceAll(' ', '');
-    return x;
+class SmallestIntegerFinder {
+    findSmallestInt(args) {
+        return args.reduce((acc, el) => {
+            return acc < el ? acc : el;
+        });
+    }
 }
+// or return Math.min(...args)
