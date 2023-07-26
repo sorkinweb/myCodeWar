@@ -1,25 +1,20 @@
 'use strict';
 
 /*
-    8kyu. Count of positives / sum of negatives
+    8kyu. Fake Binary
 
-Given an array of integers.
-Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 
-0 is neither positive nor negative.
-If the input is an empty array or is null, return an empty array.
-Example
-For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'.
+Return the resulting string.
+Note: input will never be an empty string
 */
 
-function countPositivesSumNegatives(input) {
-    if (input && input.length) {
-        let positiveCount = 0;
-        let negativeSum = 0;
-        input.forEach(el => el > 0 ? positiveCount ++ : negativeSum += el);
-        return [positiveCount, negativeSum];
-    } else {
-        return [];
-    }
+
+let fake = '45385593107843568';
+
+function fakeBin(x) {
+    return x.split('').map(el => el < 5 ? el = 0 : el = 1).join('');
 }
 
-// or return input && input.length ? [input.filter(p => p > 0).length, input.filter(n => n < 0).reduce((a, b) => a + b, 0)] : [];
+console.log(fakeBin(fake));
+
+// or return x.split('').map(el => el < 5 ? 0 : 1).join('');
