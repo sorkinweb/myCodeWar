@@ -1,20 +1,18 @@
 'use strict';
 
 /*
-    8kyu. Reversed sequence
-    
-Build a function that returns an array of integers from n to 1 where n>0.
-Example : n=5 --> [5,4,3,2,1]
+    8kyu. Sentence Smash
+
+Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. 
+You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. 
+Be careful, there shouldn't be a space at the beginning or the end of the sentence!
 
 */
 
-function getNumber(num) {
-    let resultArr = [];
-    for(let i = 0; i <= num; i++) {
-        resultArr.push(i);
-    }
-    return resultArr.reverse();
-}
-console.log(getNumber(5));
+const arr = ['hello', 'world', 'this', 'is', 'great'];
 
-// or return Array(n).fill(0).map((e, i) => n - i );
+function smash (words) {
+    return words.join(' ')
+};
+
+console.log(smash(arr)); // 'hello world this is great';
