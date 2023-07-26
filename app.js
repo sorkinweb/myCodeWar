@@ -1,20 +1,20 @@
 'use strict';
 
 /*
-    8kyu. Fake Binary
+    8kyu. Reversed sequence
+    
+Build a function that returns an array of integers from n to 1 where n>0.
+Example : n=5 --> [5,4,3,2,1]
 
-Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'.
-Return the resulting string.
-Note: input will never be an empty string
 */
 
-
-let fake = '45385593107843568';
-
-function fakeBin(x) {
-    return x.split('').map(el => el < 5 ? el = 0 : el = 1).join('');
+function getNumber(num) {
+    let resultArr = [];
+    for(let i = 0; i <= num; i++) {
+        resultArr.push(i);
+    }
+    return resultArr.reverse();
 }
+console.log(getNumber(5));
 
-console.log(fakeBin(fake));
-
-// or return x.split('').map(el => el < 5 ? 0 : 1).join('');
+// or return Array(n).fill(0).map((e, i) => n - i );
