@@ -1,19 +1,30 @@
 'use strict';
 
 /*
-    8kyu. Sum Mixed Array
+    8kyu. Sum without highest and lowest number
 
-Given an array of integers as strings and numbers, 
-return the sum of the array values as if all were numbers.
-
-Return your answer as a number.
-
+Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+Mind the input validation.
+Example
+{ 6, 2, 1, 8, 10 } => 16
+{ 1, 1, 11, 2, 3 } => 6
+Input validation
+If an empty value ( null, None, Nothing etc. ) is given instead of an array, 
+or the given array is an empty list or a list with only 1 element, return 0.
 */
 
-let b = [9, 3, '7', '3'];
+let b = [6, 2, 1, 8, 10];
 
-function sumMix(x) {
-    return x.reduce((acc, el) => acc + Number(el));
+function sumArray(array) {
+    if(array && array.length > 1) {
+        const sortedArray = array
+        .sort((a, b) => a - b)
+        .slice(1, -1);
+        return sortedArray.reduce((acc, el) => acc + el, 0)
+    };
+    return 0;
 }
+console.log(sumArray(b)); //16
 
-console.log(sumMix(b)); // 22
+// or sumArray = a => a ? a.sort((x, y) => x - y).slice(1, -1).reduce((s, e) => s + e, 0) : 0
