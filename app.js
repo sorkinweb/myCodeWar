@@ -1,18 +1,15 @@
 'use strict';
 
 /*
-    8kyu. Reduce but Grow
+    8kyu. Convert a string to an array
 
-Given a non-empty array of integers, return the result of multiplying the values together in order. 
-Example:
-[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+"Robin Singh" ==> ["Robin", "Singh"]
+"I love arrays they are my favorite" ==> ["I", "love", "arrays", "they", "are", "my", "favorite"]
 
 */
 
-const b = [1, 2, 3, 4];
-
-function grow(x) {
-    return x.reduce((acc, el) => acc * el);
+function stringToArray(string) {
+    return string.split(' ');
 }
 
-console.log(grow(b));
+console.log(stringToArray('Robin Singh')); // ['Robin', 'Singh']
