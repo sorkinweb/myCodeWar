@@ -1,30 +1,18 @@
 'use strict';
 
 /*
-    8kyu. Sum without highest and lowest number
+    8kyu. Array plus array
 
-Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
-The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
-Mind the input validation.
-Example
-{ 6, 2, 1, 8, 10 } => 16
-{ 1, 1, 11, 2, 3 } => 6
-Input validation
-If an empty value ( null, None, Nothing etc. ) is given instead of an array, 
-or the given array is an empty list or a list with only 1 element, return 0.
+I'm new to coding and now I want to get the sum of two arrays... 
+Actually the sum of all their elements. I'll appreciate for your help.
+P.S. Each array includes only integer numbers. Output is a number too.
+
 */
 
-let b = [6, 2, 1, 8, 10];
+const a = [1, 2, 3];
+const b = [4, 5, 6];
 
-function sumArray(array) {
-    if(array && array.length > 1) {
-        const sortedArray = array
-        .sort((a, b) => a - b)
-        .slice(1, -1);
-        return sortedArray.reduce((acc, el) => acc + el, 0)
-    };
-    return 0;
+function arrayPlusArray(arr1, arr2) {
+    return arr1.concat(arr2).reduce((acc,el) => acc + el);
 }
-console.log(sumArray(b)); //16
-
-// or sumArray = a => a ? a.sort((x, y) => x - y).slice(1, -1).reduce((s, e) => s + e, 0) : 0
+console.log(arrayPlusArray(a, b)); // 21
