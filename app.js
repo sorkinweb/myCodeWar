@@ -1,50 +1,19 @@
 'use strict';
 
 /*
-    8kyu. Rock Paper Scissors!
+    8kyu. Sum Mixed Array
 
-Let's play! You have to return which player won! In case of a draw return Draw!.
-Examples(Input1, Input2 --> Output):
-"scissors", "paper" --> "Player 1 won!"
-"scissors", "rock" --> "Player 2 won!"
-"paper", "paper" --> "Draw!"
+Given an array of integers as strings and numbers, 
+return the sum of the array values as if all were numbers.
 
-*/
-
-const rps = (p1, p2) => {
-    switch (true) {
-        case p1 == p2:
-            return 'Draw!';
-        case p1 == 'scissors' && p2 == 'paper':
-            return 'Player 1 won!';
-        case p1 == 'paper' && p2 == 'scissors':
-            return 'Player 2 won!';
-        case p1 == 'paper' && p2 == 'rock':
-            return 'Player 1 won!';
-        case p1 == 'rock' && p2 == 'paper':
-            return 'Player 2 won!';
-        case p1 == 'scissors' && p2 == 'rock':
-            return 'Player 2 won!';
-        case p1 == 'rock' && p2 == 'scissors':
-            return 'Player 1 won!';
-    }
-};
-console.log(rps('paper', 'paper'));
-
-
-/*
-
-or: 
-const rps1 = (p1, p2) => {
-    const rules = { rock: 'scissors', paper: 'rock', scissors: 'paper' };
-    if (p1 === p2) return 'Draw!';
-    if (p2 === rules[p1]) {
-        return 'Player 1 won!';
-    } else {
-        return 'Player 2 won!';
-    }
-};
-
-console.log(rps1('rock', 'scissors'));
+Return your answer as a number.
 
 */
+
+let b = [9, 3, '7', '3'];
+
+function sumMix(x) {
+    return x.reduce((acc, el) => acc + Number(el));
+}
+
+console.log(sumMix(b)); // 22
