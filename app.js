@@ -1,31 +1,25 @@
 'use strict';
 
 /*
-    8kyu. Cat years, Dog years
+    8kyu. Filter out the geese
 
-Kata Task
-I have a cat and a dog.
-I got them at the same time as kitten/puppy. That was humanYears years ago.
-Return their respective ages now as [humanYears,catYears,dogYears]
+Write a function that takes a list of strings as an argument 
+and returns a filtered list containing the same elements but with the 'geese' removed.
+The geese are any strings in the following array, which is pre-populated in your solution:
 
-NOTES:
-humanYears >= 1
-humanYears are whole numbers only
+["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+For example, if this array were passed as an argument:
 
-Cat Years
-15 cat years for first year
-+9 cat years for second year
-+4 cat years for each year after that
+["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+Your function would return the following array:
 
-Dog Years
-15 dog years for first year
-+9 dog years for second year
-+5 dog years for each year after that
+["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. 
+Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
 
 */
 
-const humanYearsCatYearsDogYears = function (humanYears) {
-    if (humanYears === 1) return [1, 15, 15];
-    if (humanYears === 2) return [1, 24, 24];
-    return [humanYears, 24 + (humanYears - 2) * 4, 24 + (humanYears - 2) * 5];
+function gooseFilter (birds) {
+    let geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+    return birds.filter(el => !geese.includes(el));
 };
