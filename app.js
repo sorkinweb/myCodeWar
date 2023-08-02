@@ -1,18 +1,21 @@
 'use strict';
 
 /*
-    8kyu. Array plus array
+    8kyu. Double Char
 
-I'm new to coding and now I want to get the sum of two arrays... 
-Actually the sum of all their elements. I'll appreciate for your help.
-P.S. Each array includes only integer numbers. Output is a number too.
+Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+Examples (Input -> Output):
+* "String"      -> "SSttrriinngg"
+* "Hello World" -> "HHeelllloo  WWoorrlldd"
+* "1234!_ "     -> "11223344!!__  "
+Good Luck!
 
 */
 
-const a = [1, 2, 3];
-const b = [4, 5, 6];
+let a = 'String';
 
-function arrayPlusArray(arr1, arr2) {
-    return arr1.concat(arr2).reduce((acc,el) => acc + el);
+function doubleChar(str) {
+    return str.split('').map(el => el + el).join('')
 }
-console.log(arrayPlusArray(a, b)); // 21
+
+console.log(doubleChar(a)) // SSttrriinngg
