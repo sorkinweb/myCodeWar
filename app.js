@@ -1,18 +1,18 @@
 'use strict';
 
 /*
-    8kyu. Twice as old
+    8kyu. Removing Elements
 
-Your function takes two arguments:
-current father's age (years)
-current age of his son (years)
-
-Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). 
-The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
+Take an array and remove every second element from the array. 
+Always keep the first element and start removing with the next element.
+Example:
+["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+None of the arrays will be empty, so you don't have to worry about that!
 
 */
 
-function twiceAsOld(dadYearsOld, sonYearsOld) {
-    return Math.abs(dadYearsOld - (sonYearsOld * 2));
+function removeEveryOther(arr) {
+    return arr.filter((_, index) => index % 2 === 0);
 }
-console.log(twiceAsOld(36, 14)); // 8
+
+console.log(removeEveryOther(["Keep", "Remove", "Keep", "Remove", "Keep"])); // ['Keep', 'Keep', 'Keep']
