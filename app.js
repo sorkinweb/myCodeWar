@@ -1,30 +1,31 @@
 'use strict';
 
 /*
-    8kyu. All Star Code Challenge #18
+    8kyu. Cat years, Dog years
 
-Create a function that accepts a string and a single character, 
-and returns an integer of the count of occurrences the 2nd argument is found in the first one.
-If no occurrences can be found, a count of 0 should be returned.
-("Hello", "o")  ==>  1
-("Hello", "l")  ==>  2
-("", "z")       ==>  0
+Kata Task
+I have a cat and a dog.
+I got them at the same time as kitten/puppy. That was humanYears years ago.
+Return their respective ages now as [humanYears,catYears,dogYears]
 
-The first argument can be an empty string
-In languages with no distinct character data type, the second argument will be a string of length 1
+NOTES:
+humanYears >= 1
+humanYears are whole numbers only
+
+Cat Years
+15 cat years for first year
++9 cat years for second year
++4 cat years for each year after that
+
+Dog Years
+15 dog years for first year
++9 dog years for second year
++5 dog years for each year after that
+
 */
 
-function strCount(str, letter) {
-    let resultArr = [];
-    for(const el of str) {
-        if(el === letter) {
-            resultArr.push(el);
-        }
-    }
-    return resultArr.length;
-}
-
-console.log(strCount('Hello', 'o')) // 1
-console.log(strCount('Hello', 'l')); // 2
-
-// or return str.split(letter).length-1  or return str.split('').filter(c => c == letter).length;
+const humanYearsCatYearsDogYears = function (humanYears) {
+    if (humanYears === 1) return [1, 15, 15];
+    if (humanYears === 2) return [1, 24, 24];
+    return [humanYears, 24 + (humanYears - 2) * 4, 24 + (humanYears - 2) * 5];
+};
