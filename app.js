@@ -1,21 +1,20 @@
 'use strict';
 
 /*
-    8kyu. Double Char
+    8kyu. Beginner Series #4 Cockroach
 
-Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
-Examples (Input -> Output):
-* "String"      -> "SSttrriinngg"
-* "Hello World" -> "HHeelllloo  WWoorrlldd"
-* "1234!_ "     -> "11223344!!__  "
-Good Luck!
+The cockroach is one of the fastest insects. 
+Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).
+For example:
+1.08 --> 30
+Note! The input is a Real number (actual type is language dependent) and is >= 0. The result should be an Integer.
 
 */
 
-let a = 'String';
-
-function doubleChar(str) {
-    return str.split('').map(el => el + el).join('')
+function cockroachSpeed(s) {
+    return Math.floor(s * 100000 / 3600);
 }
 
-console.log(doubleChar(a)) // SSttrriinngg
+console.log(cockroachSpeed(1.12)); // 31
+
+// or const cockroachSpeed = s => Math.floor(s / 0.036);
