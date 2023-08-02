@@ -1,20 +1,18 @@
 'use strict';
 
 /*
-    8kyu. Beginner Series #4 Cockroach
+    8kyu. Twice as old
 
-The cockroach is one of the fastest insects. 
-Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).
-For example:
-1.08 --> 30
-Note! The input is a Real number (actual type is language dependent) and is >= 0. The result should be an Integer.
+Your function takes two arguments:
+current father's age (years)
+current age of his son (years)
+
+Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). 
+The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
 
 */
 
-function cockroachSpeed(s) {
-    return Math.floor(s * 100000 / 3600);
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+    return Math.abs(dadYearsOld - (sonYearsOld * 2));
 }
-
-console.log(cockroachSpeed(1.12)); // 31
-
-// or const cockroachSpeed = s => Math.floor(s / 0.036);
+console.log(twiceAsOld(36, 14)); // 8
