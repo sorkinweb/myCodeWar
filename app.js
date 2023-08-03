@@ -1,31 +1,22 @@
 'use strict';
 
 /*
-    8kyu. Stringy Strings
+    8kyu. Convert to Binary
 
-write me a function stringy that takes a size and returns a string of alternating '1s' and '0s'.
+Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
 
-the string should start with a 1.
-a string with size 6 should return :'101010'.
-with size 4 should return : '1010'.
-with size 12 should return : '101010101010'.
+to_binary(1)  /* should return 1 
+to_binary(5)  /* should return 101 
+to_binary(11) /* should return 1011 
 
-The size will always be positive and will only use whole numbers.
+toBinary(1)  /* should return 1 
+toBinary(5)  /* should return 101 
+toBinary(11) /* should return 1011 
 
 */
 
-function stringy(size) {
-    let string = '';
-    for(let i = 0; i < size; i++) {
-        if (i % 2 == 0) {
-            string += 1;
-        } else {
-            string += 0;
-        }
-    }
-    return string;
+function toBinary(n) {
+    return +n.toString(2);
 }
 
-console.log(stringy(6)); // 101010
-
-// or return ''.padStart(size, '10');
+console.log(toBinary(50)); // 110010
