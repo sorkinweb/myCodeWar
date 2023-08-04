@@ -1,29 +1,23 @@
 'use strict';
 
 /*
-    8kyu. Remove duplicates from list
+    8kyu. Add Length
 
-Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
-The order of the sequence has to stay the same.
+What if we need the length of the words separated by a space 
+to be added at the end of that same word and have it returned as an array?
+Example(Input --> Output)
+"apple ban" --> ["apple 5", "ban 3"]
+"you will win" -->["you 3", "will 4", "win 3"]
 
+Your task is to write a function that takes a String
+and returns an Array/list with the length of each word added to each element .
+Note: String will have at least one element; words will always be separated by a space.
 */
 
-// function distinct(a) {
-//     return a.filter((el, index) => {
-//         a.indexOf(el) !== index
-//     });
-// }
 
-const arr = [4, 22, 22, 32, 32, 31, 44, 1, 2, 3, 6, 6];
-
-function getNewArrWithoutDublicates(arrOfNum) {
-    let newArr = [];
-    newArr = arr.filter((el, index) => {
-        return arr.indexOf(el) === index; // if !== [22, 32, 6]
-    })
-    return newArr;
+function addLength(str) {
+    return str.split(' ').map(el => el + ' ' + el.length);
 }
 
-console.log(getNewArrWithoutDublicates(arr)); // [4, 22, 32, 31, 44, 1, 2, 3, 6]
+console.log(addLength('Interesting Task BTW')); // ['Interesting 11', 'Task 4', 'BTW 3']
 
-// or return [...new Set(a)];
