@@ -1,27 +1,29 @@
 'use strict';
 
 /*
-    8kyu. No zeros for heros
+    8kyu. Generate range of integers
 
-Numbers ending with zeros are boring.
-They might be fun in your world, but not here.
-Get rid of them. Only the ending ones.
+Implement a function named generateRange(min, max, step), 
+which takes three arguments and generates a range of integers from min to max, with the step.
+The first integer is the minimum value, the second is the maximum of the range and the third is the step. 
+(min < max)
 
-1450 -> 145
-960000 -> 96
-1050 -> 105
--1050 -> -105
+Task
+Implement a function named
 
-Zero alone is fine, don't worry about it. Poor guy anyway
+generateRange(2, 10, 2) // should return array of [2,4,6,8,10]
+generateRange(1, 10, 3) // should return array of [1,4,7,10]
+Note
+min < max
+step > 0
+the range does not HAVE to include max (depending on the step)
 */
 
-function noBoringZeros(n) {
-    while (n % 10 == 0 && n != 0) {
-        n = n / 10;
+function generateRange(min, max, step) {
+    let resultArr = [];
+    for (let i = min; i <= max; i += step) {
+        resultArr.push(i);
     }
-    return n;
+    return resultArr;
 }
-
-console.log(noBoringZeros(500)); // 5
-
-// or return +`${n}`.replace(/0*$/, "");
+console.log(generateRange(2, 10, 2)) // [2,4,6,8,10]
