@@ -1,15 +1,29 @@
 'use strict';
 
 /*
-    8kyu. Super Duper Easy
+    8kyu. Remove duplicates from list
 
-Make a function that returns the value multiplied by 50 and increased by 6.
-If the value entered is a string it should return "Error".
+Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+The order of the sequence has to stay the same.
+
 */
 
-function problem(x) {
-    return typeof x === 'string' ? 'Error' : x * 50 + 6;
+// function distinct(a) {
+//     return a.filter((el, index) => {
+//         a.indexOf(el) !== index
+//     });
+// }
+
+const arr = [4, 22, 22, 32, 32, 31, 44, 1, 2, 3, 6, 6];
+
+function getNewArrWithoutDublicates(arrOfNum) {
+    let newArr = [];
+    newArr = arr.filter((el, index) => {
+        return arr.indexOf(el) === index; // if !== [22, 32, 6]
+    })
+    return newArr;
 }
 
-console.log(problem(2)); // 106
-console.log(problem('2')); // Error
+console.log(getNewArrWithoutDublicates(arr)); // [4, 22, 32, 31, 44, 1, 2, 3, 6]
+
+// or return [...new Set(a)];
