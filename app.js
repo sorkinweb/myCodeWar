@@ -1,22 +1,15 @@
 'use strict';
 
 /*
-    8kyu. Convert to Binary
+    8kyu. Super Duper Easy
 
-Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
-
-to_binary(1)  /* should return 1 
-to_binary(5)  /* should return 101 
-to_binary(11) /* should return 1011 
-
-toBinary(1)  /* should return 1 
-toBinary(5)  /* should return 101 
-toBinary(11) /* should return 1011 
-
+Make a function that returns the value multiplied by 50 and increased by 6.
+If the value entered is a string it should return "Error".
 */
 
-function toBinary(n) {
-    return +n.toString(2);
+function problem(x) {
+    return typeof x === 'string' ? 'Error' : x * 50 + 6;
 }
 
-console.log(toBinary(50)); // 110010
+console.log(problem(2)); // 106
+console.log(problem('2')); // Error
