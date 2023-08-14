@@ -1,24 +1,20 @@
 'use strict';
 
 /*
-    7kyu. Vowel Count
+    7kyu. Disemvowel Trolls
 
-Return the number (count) of vowels in the given string.
-We will consider a, e, i, o, u as vowels for this Kata (but not y).
-The input string will only consist of lower case letters and/or spaces.
+Trolls are attacking your comment section!
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+Note: for this kata y isn't considered a vowel.
 */
 
-function getCount(str) {
-    let vowelsCount = 0;
-    const vowels = ['a', 'e', 'i', 'o', 'u'];
-    for(let el of str) {
-        if(vowels.includes(el)) {
-            vowelsCount++;
-        }
-    }
-    return vowelsCount;
+function disemVowel(str) {
+    const vowels = 'aeiou'
+    return str.split('').filter(el => !vowels.includes(el.toLowerCase())).join('');
 }
 
-console.log(getCount('abracadabra')); // 5
+console.log(disemVowel('This website is for losers LoL!')); // Ths wbst s fr lsrs LL!
 
-// or regex return (str.match(/[aeiou]/ig)||[]).length;
+// or regex return str.replace(/[aeiou]/gi, '');
