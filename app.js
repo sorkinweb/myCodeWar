@@ -1,29 +1,24 @@
 'use strict';
 
 /*
-    8kyu. Generate range of integers
+    7kyu. Vowel Count
 
-Implement a function named generateRange(min, max, step), 
-which takes three arguments and generates a range of integers from min to max, with the step.
-The first integer is the minimum value, the second is the maximum of the range and the third is the step. 
-(min < max)
-
-Task
-Implement a function named
-
-generateRange(2, 10, 2) // should return array of [2,4,6,8,10]
-generateRange(1, 10, 3) // should return array of [1,4,7,10]
-Note
-min < max
-step > 0
-the range does not HAVE to include max (depending on the step)
+Return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+The input string will only consist of lower case letters and/or spaces.
 */
 
-function generateRange(min, max, step) {
-    let resultArr = [];
-    for (let i = min; i <= max; i += step) {
-        resultArr.push(i);
+function getCount(str) {
+    let vowelsCount = 0;
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    for(let el of str) {
+        if(vowels.includes(el)) {
+            vowelsCount++;
+        }
     }
-    return resultArr;
+    return vowelsCount;
 }
-console.log(generateRange(2, 10, 2)) // [2,4,6,8,10]
+
+console.log(getCount('abracadabra')); // 5
+
+// or regex return (str.match(/[aeiou]/ig)||[]).length;
