@@ -1,28 +1,20 @@
 'use strict';
 
 /*
-    7kyu. You're a square!
+    7kyu. Descending Order
 
-You like building blocks. You especially like building blocks that are squares. 
-And what you even like more, is to arrange them into a square of square building blocks!
-However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! 
-Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! 
-That's it! You just have to check if your number of building blocks is a perfect square.
+Your task is to make a function that can take any non-negative integer as an argument 
+and return it with its digits in descending order. 
+Essentially, rearrange the digits to create the highest possible number.
 
-In mathematics, a square number or perfect square is an integer that is the square of an integer; 
-in other words, it is the product of some integer with itself.
-The tests will always use some integral number, so don't worry about that in dynamic typed languages.
-
--1  =>  false
- 0  =>  true
- 3  =>  false
- 4  =>  true
-25  =>  true
-26  =>  false
+Examples:
+Input: 42145 Output: 54421
+Input: 145263 Output: 654321
+Input: 123456789 Output: 987654321
 */
 
-const isSquare = function (n) {
-    return Math.sqrt(n) % 1 === 0;
-};
+function descendingOrder(n) {
+    return +('' + n).split('').sort((a, b) => b - a).join('');
+}
 
-console.log(isSquare(144)); // true
+console.log(descendingOrder(1021)) // 2110
