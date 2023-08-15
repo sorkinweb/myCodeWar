@@ -1,19 +1,18 @@
 'use strict';
 
 /*
-    7kyu. Sum of two lowest positive integers
+    7kyu. String ends with?
 
-Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers.
-No floats or non-positive integers will be passed.
+Complete the solution so that it returns true if the first argument(string) 
+passed in ends with the 2nd argument (also a string).
 
-For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
-[10, 343445353, 3453445, 3453545353453] should return 3453455.
-
+Examples:
+solution('abc', 'bc') // returns true
+solution('abc', 'd') // returns false
 */
 
-function sumTwoSmallestNumbers(numbers) {
-    const resultArr = numbers.sort((a, b) => a - b);
-    return resultArr[0] + resultArr[1];
+function solution(str, ending) {
+    return str.endsWith(ending);
 }
 
-console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77])); // 7
+console.log(solution('abcde', 'cde')); // true
