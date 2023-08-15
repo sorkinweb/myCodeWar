@@ -1,28 +1,33 @@
 'use strict';
 
 /*
-    7kyu. Isograms
+    7kyu. Exes and Ohs
 
-An isogram is a word that has no repeating letters, consecutive or non-consecutive. 
-Implement a function that determines whether a string that contains only letters is an isogram. 
-Assume the empty string is an isogram. Ignore letter case.
+Check to see if a string has the same amount of 'x's and 'o's. 
+The method must return a boolean and be case insensitive. The string can contain any char.
 
-Example: (Input --> Output)
-isIsogram "Dermatoglyphics" = true
-isIsogram "moose" = false
-isIsogram "aba" = false
+Examples input/output:
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
 */
 
-function isIsogram(str) {
-    const resultArr = str.toLowerCase().split('').sort();
-    for (let i = 0; i <= resultArr.length-1; i++) {
-        if (resultArr[i] === resultArr[i + 1]) {
-            return false;
+function XO(str) {
+    let xCount = 0;
+    let oCount = 0;
+    str = str.toLowerCase();
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === 'x') {
+            xCount++;
+        } else if (str[i] === 'o') {
+            oCount++;
         }
     }
-    return true;
+    return xCount === oCount;
 }
-console.log(isIsogram('mossa')); // false
 
-// or return new Set(str.toUpperCase()).size == str.length;
-// or  return !/(\w).*\1/i.test(str)
+console.log(XO('xoxoxxoo')) // true
+
+// or return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
