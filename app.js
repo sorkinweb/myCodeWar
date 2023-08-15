@@ -1,21 +1,28 @@
 'use strict';
 
 /*
-    7kyu. List Filtering
+    7kyu. Isograms
 
-In this kata you will create a function that takes a list of non-negative integers and strings 
-and returns a new list with the strings filtered out.
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. 
+Implement a function that determines whether a string that contains only letters is an isogram. 
+Assume the empty string is an isogram. Ignore letter case.
 
-Example
-filter_list([1,2,'a','b']) == [1,2]
-filter_list([1,'a','b',0,15]) == [1,0,15]
-filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+Example: (Input --> Output)
+isIsogram "Dermatoglyphics" = true
+isIsogram "moose" = false
+isIsogram "aba" = false
 */
 
-function filter_list(l) {
-  return l.filter(el => typeof(el) === 'number');
+function isIsogram(str) {
+    const resultArr = str.toLowerCase().split('').sort();
+    for (let i = 0; i <= resultArr.length-1; i++) {
+        if (resultArr[i] === resultArr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
 }
+console.log(isIsogram('mossa')); // false
 
-console.log(filter_list([1, 2, 'aasf', '1', '123', 123])); // [1, 2, 123];
-
-// or return l.filter(e => Number.isInteger(e));
+// or return new Set(str.toUpperCase()).size == str.length;
+// or  return !/(\w).*\1/i.test(str)
