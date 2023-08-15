@@ -1,16 +1,19 @@
 'use strict';
 
 /*
-    7kyu. Shortest Word
+    7kyu. Mumbling
 
-Simple, given a string of words, return the length of the shortest word(s).
-String will never be empty and you do not need to account for different data types.
+This time no story, no theory. The examples below show you how to write function accum:
+
+Examples:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
 */
 
-function findShort(s) {
-    return Math.min(...s.split(' ').map(el => el.length));
+function accum(s) {
+    return s.split('').map((el, index) => (el.toUpperCase() + el.toLowerCase().repeat(index))).join('-');
 }
 
-console.log(findShort('bitcoin take over the world maybe who knows perhaps')); // 3
-
-// or return Math.min.apply(null, s.split(' ').map(w => w.length));
+console.log(accum('ZpglnRxqenU')); // Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu
