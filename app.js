@@ -1,33 +1,18 @@
 'use strict';
 
 /*
-    7kyu. Exes and Ohs
+    7kyu. Jaden Casing Strings
 
-Check to see if a string has the same amount of 'x's and 'o's. 
-The method must return a boolean and be case insensitive. The string can contain any char.
+Your task is to convert strings to how they would be written by Jaden Smith. 
+The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
 
-Examples input/output:
-XO("ooxx") => true
-XO("xooxx") => false
-XO("ooxXm") => true
-XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
-XO("zzoo") => false
+Example:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 */
 
-function XO(str) {
-    let xCount = 0;
-    let oCount = 0;
-    str = str.toLowerCase();
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === 'x') {
-            xCount++;
-        } else if (str[i] === 'o') {
-            oCount++;
-        }
-    }
-    return xCount === oCount;
+function toJadenCase (str) {
+    return str.split(' ').map(el => el[0].toUpperCase() + el.slice(1).toLowerCase()).join(' ');
 }
 
-console.log(XO('xoxoxxoo')) // true
-
-// or return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
+console.log(toJadenCase("How can mirrors be real if our eyes aren't real")); // How Can Mirrors Be Real If Our Eyes Aren't Real
