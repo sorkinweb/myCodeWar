@@ -1,18 +1,16 @@
 'use strict';
 
 /*
-    7kyu. Jaden Casing Strings
+    7kyu. Shortest Word
 
-Your task is to convert strings to how they would be written by Jaden Smith. 
-The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
-
-Example:
-Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
-Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+Simple, given a string of words, return the length of the shortest word(s).
+String will never be empty and you do not need to account for different data types.
 */
 
-function toJadenCase (str) {
-    return str.split(' ').map(el => el[0].toUpperCase() + el.slice(1).toLowerCase()).join(' ');
+function findShort(s) {
+    return Math.min(...s.split(' ').map(el => el.length));
 }
 
-console.log(toJadenCase("How can mirrors be real if our eyes aren't real")); // How Can Mirrors Be Real If Our Eyes Aren't Real
+console.log(findShort('bitcoin take over the world maybe who knows perhaps')); // 3
+
+// or return Math.min.apply(null, s.split(' ').map(w => w.length));
