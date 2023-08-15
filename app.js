@@ -1,19 +1,19 @@
 'use strict';
 
 /*
-    7kyu. Mumbling
+    7kyu. Sum of two lowest positive integers
 
-This time no story, no theory. The examples below show you how to write function accum:
+Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers.
+No floats or non-positive integers will be passed.
 
-Examples:
-accum("abcd") -> "A-Bb-Ccc-Dddd"
-accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
-accum("cwAt") -> "C-Ww-Aaa-Tttt"
+For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+[10, 343445353, 3453445, 3453545353453] should return 3453455.
 
 */
 
-function accum(s) {
-    return s.split('').map((el, index) => (el.toUpperCase() + el.toLowerCase().repeat(index))).join('-');
+function sumTwoSmallestNumbers(numbers) {
+    const resultArr = numbers.sort((a, b) => a - b);
+    return resultArr[0] + resultArr[1];
 }
 
-console.log(accum('ZpglnRxqenU')); // Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu
+console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77])); // 7
