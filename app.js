@@ -1,23 +1,20 @@
 'use strict';
 
 /*
-    7kyu. Friend or Foe?
+    7kyu. Binary Addition
 
-Make a program that filters a list of strings and returns a list with only your friends name in it.
+Implement a function that adds two numbers together and returns their sum in binary. 
+The conversion can be done before, or after the addition.
 
-If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! 
-Otherwise, you can be sure he's not...
+The binary number returned should be a string.
+Examples:(Input1, Input2 --> Output (explanation)))
 
-Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
-
-friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
-
-Note: keep the original order of the names in the output.
+1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
 */
 
-function friend(friends) {
-    const oldFriends = friends.filter(el => el.length === 4);
-    return oldFriends;
+function addBinary(a, b) {
+    return (a+b).toString(2);
 }
 
-console.log(friend(['Ryan', 'Kieran', 'Jason', 'Yous'])); //  ['Ryan', 'Yous']
+console.log(addBinary(1, 1)); // 10
