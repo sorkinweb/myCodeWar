@@ -1,18 +1,29 @@
 'use strict';
 
 /*
-    7kyu. String ends with?
+    7kyu. Credit Card Mask
 
-Complete the solution so that it returns true if the first argument(string) 
-passed in ends with the 2nd argument (also a string).
+Usually when you buy something, you're asked whether your credit card number, 
+phone number or answer to your most secret question is still correct. 
+However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
 
-Examples:
-solution('abc', 'bc') // returns true
-solution('abc', 'd') // returns false
+Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+"4556364607935616" --> "############5616"
+     "64607935616" -->      "#######5616"
+               "1" -->                "1"
+                "" -->                 ""
+
+// "What was the name of your first pet?"
+"Skippy" --> "##ippy"
+"Nananananananananananananananana Batman!" --> "####################################man!"
 */
 
-function solution(str, ending) {
-    return str.endsWith(ending);
+
+function maskify(cc) {
+        return cc.slice(-4).padStart(cc.length, '#');
 }
 
-console.log(solution('abcde', 'cde')); // true
+console.log(maskify('4556364607935616')); // ############5616
+console.log(maskify('11111')); // #1111
+console.log(maskify('111')); // 111
