@@ -1,29 +1,23 @@
 'use strict';
 
 /*
-    7kyu. Credit Card Mask
+    7kyu. Friend or Foe?
 
-Usually when you buy something, you're asked whether your credit card number, 
-phone number or answer to your most secret question is still correct. 
-However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+Make a program that filters a list of strings and returns a list with only your friends name in it.
 
-Your task is to write a function maskify, which changes all but the last four characters into '#'.
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! 
+Otherwise, you can be sure he's not...
 
-"4556364607935616" --> "############5616"
-     "64607935616" -->      "#######5616"
-               "1" -->                "1"
-                "" -->                 ""
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
 
-// "What was the name of your first pet?"
-"Skippy" --> "##ippy"
-"Nananananananananananananananana Batman!" --> "####################################man!"
+friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
+
+Note: keep the original order of the names in the output.
 */
 
-
-function maskify(cc) {
-        return cc.slice(-4).padStart(cc.length, '#');
+function friend(friends) {
+    const oldFriends = friends.filter(el => el.length === 4);
+    return oldFriends;
 }
 
-console.log(maskify('4556364607935616')); // ############5616
-console.log(maskify('11111')); // #1111
-console.log(maskify('111')); // 111
+console.log(friend(['Ryan', 'Kieran', 'Jason', 'Yous'])); //  ['Ryan', 'Yous']
