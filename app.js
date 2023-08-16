@@ -1,30 +1,31 @@
 'use strict';
 
 /*
-    7kyu. Regex validate PIN code
+    7kyu. Two to One
 
-ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
-If the function is passed a valid PIN string, return true, else return false.
+Take 2 strings s1 and s2 including only letters from a to z. 
+Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
 
-Examples (Input --> Output)
-"1234"   -->  true
-"12345"  -->  false
-"a234"   -->  false
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 */
 
-function validatePIN(pin) {
-    if (pin.length !== 4 && pin.length !== 6) {
-        return false;
-    }
-    for (let i = 0; i < pin.length; i++) {
-        if (pin[i] < '0' || pin[i] > '9') {
-            return false;
+function longest(s1, s2) {
+    s1 = s1.split('');
+    s2 = s2.split('');
+    return s1.concat(s2).reduce((acc, el) => {
+        if (acc.includes(el)) {
+            return acc;
         }
-    }
-    return true;
+        return [...acc, el].sort().join('');
+    })
 }
 
-console.log(validatePIN('a234')); // false
-console.log(validatePIN('111111')); // true
+console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq')); // abcdefklmopqwxy
 
-// or regex return /^(\d{4}|\d{6})$/.test(pin)
+// or const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
+// or return Array.from(new Set(s1 + s2)).sort().join('');
