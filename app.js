@@ -1,20 +1,30 @@
 'use strict';
 
 /*
-    7kyu. Binary Addition
+    7kyu. Regex validate PIN code
 
-Implement a function that adds two numbers together and returns their sum in binary. 
-The conversion can be done before, or after the addition.
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+If the function is passed a valid PIN string, return true, else return false.
 
-The binary number returned should be a string.
-Examples:(Input1, Input2 --> Output (explanation)))
-
-1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
-5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+Examples (Input --> Output)
+"1234"   -->  true
+"12345"  -->  false
+"a234"   -->  false
 */
 
-function addBinary(a, b) {
-    return (a+b).toString(2);
+function validatePIN(pin) {
+    if (pin.length !== 4 && pin.length !== 6) {
+        return false;
+    }
+    for (let i = 0; i < pin.length; i++) {
+        if (pin[i] < '0' || pin[i] > '9') {
+            return false;
+        }
+    }
+    return true;
 }
 
-console.log(addBinary(1, 1)); // 10
+console.log(validatePIN('a234')); // false
+console.log(validatePIN('111111')); // true
+
+// or regex return /^(\d{4}|\d{6})$/.test(pin)
