@@ -1,32 +1,32 @@
 'use strict';
 
 /*
-    7kyu. Odd or Even?
+    7kyu. Remove the minimum
+    
+The museum of incredible dull things wants to get rid of some exhibitions. 
+Miriam, the interior architect, comes up with a plan to remove the most boring exhibitions. 
+She gives them a rating, and then removes the one with the lowest rating.
+However, just as she finished rating all exhibitions, she's off to an important fair, 
+so she asks you to write a program that tells her the ratings of the items after one removed the lowest one. 
+Fair enough.
 
-Given a list of integers, determine whether the sum of its elements is odd or even.
+Given an array of integers, remove the smallest value. Do not mutate the original array/list. 
+If there are multiple elements with the same value, remove the one with a lower index. 
+If you get an empty array/list, return an empty array/list.
 
-Give your answer as a string matching "odd" or "even".
+Don't change the order of the elements that are left.
+Examples
 
-If the input array is empty consider it as: [0] (array with a zero).
-
-Input: [0]
-Output: "even"
-
-Input: [0, 1, 4]
-Output: "odd"
-
-Input: [0, -1, -5]
-Output: "even"
+* Input: [1,2,3,4,5], output = [2,3,4,5]
+* Input: [5,3,2,1,4], output = [5,3,2,4]
+* Input: [2,2,1,2,1], output = [2,2,2,1]
 */
 
-function oddOrEven(array) {
-    if(array.length === 0) {
-        return 'even'
-    } else {
-        let result = array.reduce((acc, el) => acc += el);
-        return result % 2 === 0 ? 'even' : 'odd';
-    }
+function removeSmallest(numbers) {
+    let copy = numbers.slice(0);
+    let minElement = numbers.indexOf(Math.min(...numbers));
+    copy.splice(minElement, 1);
+    return copy;
 }
 
-console.log(oddOrEven([0, 1, 3])); // even
-console.log(oddOrEven([0, 1, 4])); // odd
+console.log(removeSmallest([5, 3, 2, 1, 4])); // [5, 3, 2, 4]
